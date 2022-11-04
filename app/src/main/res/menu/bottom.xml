@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/blogs"
+        android:title="@string/bottom_blog"
+        android:icon="@drawable/blog_icon"/>
+
+    <item
+        android:id="@+id/inquiry"
+        android:title="@string/bottom_inquiry"
+        android:icon="@drawable/inquiry_icon"/>
+
+    <item
+        android:id="@+id/task"
+        android:title="@string/bottom_task"
+        android:icon="@drawable/task_icon"/>
+
+    <item
+        android:id="@+id/pack"
+        android:title="@string/bottom_package"
+        android:icon="@drawable/package_icon"/>
+
+    <item
+        android:id="@+id/bill"
+        android:title="@string/bottom_bill"
+        android:icon="@drawable/bill_icon"/>
+
+</menu>

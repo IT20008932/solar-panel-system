@@ -1,3 +1,79 @@
 <resources>
-    <string name="app_name">SolarPanelSystem</string>
+    <!-- App Name -->
+    <string name="app_name" translatable="false">SolarPanelSystem</string>
+
+    <!-- Global Buttons -->
+    <string name="btn_add">ADD</string>
+    <string name="btn_update">UPDATE</string>
+    <string name="btn_delete">DELETE</string>
+    <string name="btn_cancel">CANCEL</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_save">SAVE</string>
+    <string name="btn_ok">OKAY</string>
+    <string name="btn_yes">yes</string>
+    <string name="btn_no">no</string>
+    <string name="btn_view">VIEW</string>
+    <string name="btn_proceed">PROCEED</string>
+    <string name="btn_edit">EDIT</string>
+    <string name="btn_skip">SKIP NOW</string>
+    <string name="btn_next">NEXT</string>
+    <string name="btn_get_started">GET STARTED</string>
+    <!-- END Global Buttons -->
+
+    <!-- Global Labels -->
+    <string name="label_no_data">No data to show. Press + button to add a new one.</string>
+	
+    <!-- END Global Labels -->
+
+    <!-- Global Messages -->
+    <string name="msg_are_u_sure">Are You Sure?</string>
+    <string name="msg_confirm_delete">"Do you really want to delete this?"</string>
+    <string name="msg_confirm_delete_canot_be_undone">This process cannot be undone.</string>
+    <!-- END Global Messages -->
+
+    <!-- Global Errors -->
+    <string name="error_msg_mandatory">This field is required</string>
+    <!-- END Global Messages -->
+
+    <!-- Bottom Menu -->
+
+    <string name="bottom_bill">BILL</string>
+    <string name="bottom_task">TASK</string>
+    <string name="bottom_inquiry">INQUIRY</string>
+    <string name="bottom_blog">BLOG</string>
+    <string name="bottom_package">PACKAGE</string>
+
+    <!-- END Bottom Menu -->
+
+    <!-- END Global Actions -->
+    
+
+	<!-- Add Package -->
+    <string name="label_package_name">Package Name *</string>
+    <string name="label_pack_desc">Package Description *</string>
+    <string name="helptxt_package_name">Enter Package Name</string>
+    <string name="helptxt_pack_desc">Enter Package Description</string>
+    <string name="msg_package_add_succesfull">Package added successfully.</string>
+    <string name="msg_package_add_unsuccesfull">Package addition unsuccessful.</string>
+    <string name="error_msg_max_characters">Maximum characters allowed to be entered is</string>
+
+    <!-- Manage Package -->
+    <string name="label_package_id">PACKAGE ID</string>
+    <string name="msg_package_update_succesfull">Package update successfully.</string>
+    <string name="msg_package_update_unsuccesfull">Package update unsuccessful.</string>
+    <string name="msg_oops"> OOPS </string>
+    <string name="msg_unable_delete">Unable to delete at this moment</string>
+    <string name="msg_retry_delete">There are customers using the package. Please retry after unlinking customers.</string>
+
+    <!--Delete Package -->
+    <string name="msg_package_delete_succesfull">Package delete successfully.</string>
+    <string name="msg_package_delete_unsuccesfull">Package deletion unsuccessful.</string>
+
+    <!-- Title Bar-->
+    <string name="notification_title">Notification</string>
+    <string name="setting">Settings</string>
+    <string name="header_package">ALL PACKAGES</string>
+    <string name="header_manage_package">MANAGE PACKAGE</string>
+    <string name="header_create_package">CREATE ROUTE</string>
+
 </resources>
