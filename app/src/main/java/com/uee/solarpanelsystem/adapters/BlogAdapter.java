@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,47 +21,44 @@ import com.uee.solarpanelsystem.packages.ModifyPackage;
 
 import java.util.ArrayList;
 
-public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHolder> {
+public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder> {
 
     private Context context;
     private Activity activity;
-    private ArrayList package_id,
-            package_name,
+    private ArrayList blog_id,
+            blog_name,
             description;
 
-    public PackageAdapter(Activity activity,
+    public BlogAdapter(Activity activity,
                           Context context,
-                          ArrayList package_id,
-                          ArrayList package_name,
+                          ArrayList blog_id,
+                          ArrayList blog_name,
                           ArrayList description)
-
     {
-        Log.d("workflow","PackageAdapter constructor called");
+        Log.d("workflow","BlogAdapter constructor called");
         this.activity = activity;
         this.context = context;
-        this.package_id = package_id;
-        this.package_name = package_name;
+        this.blog_id = blog_id;
+        this.blog_name = blog_name;
         this.description = description;
     }
 
-
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BlogAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater =LayoutInflater.from(context);
-        View view=inflater.inflate(R.layout.package_row,parent,false);
+        View view=inflater.inflate(R.layout.blog_row,parent,false);
 
-        return new MyViewHolder(view);
-
+        return new BlogAdapter.MyViewHolder(view);
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull PackageAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Log.d("workflow","PackageAdapter onBindViewHolder method called");
+    public void onBindViewHolder(@NonNull BlogAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        Log.d("workflow","BlogAdapter onBindViewHolder method called");
 
-
-        holder.pid_txt.setText(String.valueOf(package_id.get(position)));
-        holder.package_name_txt.setText(String.valueOf(package_name.get(position)));
+        holder.pid_txt.setText(String.valueOf(blog_id.get(position)));
+        holder.package_name_txt.setText(String.valueOf(blog_name.get(position)));
         holder.description_txt.setText(String.valueOf(description.get(position)));
         holder.packageImg.setVisibility(View.VISIBLE);
 
@@ -70,21 +66,21 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHo
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(context, ModifyPackage.class);
-                intent.putExtra("pid",String.valueOf(package_id.get(position)));
-                intent.putExtra("package_name",String.valueOf(package_name.get(position)));
+                intent.putExtra("pid",String.valueOf(blog_id.get(position)));
+                intent.putExtra("package_name",String.valueOf(blog_name.get(position)));
                 intent.putExtra("description",String.valueOf(description.get(position)));
                 activity.startActivityForResult(intent,1);
 
-                Log.d("valies",String.valueOf(package_id.get(position)));
+                Log.d("values",String.valueOf(blog_id.get(position)));
             }
         });
-
 
     }
 
     @Override
     public int getItemCount() {
-        return package_id.size();      }
+        return blog_id.size();
+    }
 
     static class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -104,5 +100,4 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHo
             imgbtn=itemView.findViewById(R.id.imageButton);
         }
     }
-
 }

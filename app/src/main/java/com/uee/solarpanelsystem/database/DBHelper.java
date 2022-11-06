@@ -41,6 +41,21 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_PACKAGE_TABLE);//Execute the package table creation
         Log.d("workflow", "Package table created successfully");
 
+        String SQL_CREATE_BLOG_TABLE =
+                "CREATE TABLE "
+                + BlogMaster.BlogT.TABLE_NAME +
+                        " ("
+                + BlogMaster.BlogT.COLUMN_NAME_BLOG_ID +
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + BlogMaster.BlogT.COLUMN_NAME_BLOG_NAME +
+                        " TEXT, "
+                + BlogMaster.BlogT.COLUMN_NAME_DESCRIPTION +
+                        " TEXT" + ")";
+
+        //defining the sql query
+        db.execSQL(SQL_CREATE_BLOG_TABLE);//Execute the blog table creation
+        Log.d("workflow", "Blog table created successfully");
+
     }
 
 
@@ -48,6 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
         db.execSQL("DROP TABLE IF EXISTS " + PackageMaster.PackagesT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + BlogMaster.BlogT.TABLE_NAME);
 
         // Create tables again
         onCreate(db);
@@ -141,6 +157,105 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String query = "SELECT * From "
                 + PackageMaster.PackagesT.TABLE_NAME;
+
+        Log.d("workflow", query);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+
+        }
+        return cursor;
+    }
+
+
+    // Blog CRUD methods
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public long addBlog(String name, String desc) //Parameters to be added to DB
+    {
+        Log.d("workflow", "DB addBlog method called");
+        SQLiteDatabase db = getWritableDatabase();// get the data repository in writable mode
+
+        ContentValues values = new ContentValues();  //create a new map of values, where column names the key
+        values.put(BlogMaster.BlogT.COLUMN_NAME_BLOG_NAME , name);
+        values.put(BlogMaster.BlogT.COLUMN_NAME_DESCRIPTION, desc);
+
+        //Insert a new row and returning the primary key values of the new row
+        long newRowID = db.insert(BlogMaster.BlogT.TABLE_NAME, null, values);
+
+        Log.d("workflow", "DB addBlog method call finished");
+
+        return newRowID;
+    }
+
+    public List<String> getAllBlogs() {
+        List<String> list = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + BlogMaster.BlogT.TABLE_NAME
+                + " ORDER BY " +
+                BlogMaster.BlogT.COLUMN_NAME_BLOG_ID;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);//selectQuery,selectedArguments
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        // closing connection
+        cursor.close();
+        db.close();
+        // returning lables
+        return list;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public int updateBlog(String id, String name, String desc) { //define the attributes and parameters to be sent
+
+        Log.d("workflow", "DB update blog method called");
+
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(BlogMaster.BlogT.COLUMN_NAME_BLOG_NAME, name);
+        values.put(BlogMaster.BlogT.COLUMN_NAME_DESCRIPTION, desc);
+
+        String selection = BlogMaster.BlogT.COLUMN_NAME_BLOG_ID + " = ? ";
+        String[] selectionArgs = {id};
+
+        int count = db.update(BlogMaster.BlogT.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int deleteBlog(String packageid) {
+        Log.d("workflow", "DB delete bog method called");
+
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = BlogMaster.BlogT.COLUMN_NAME_BLOG_ID + " = ? ";
+        String[] selectionArgs = {packageid};
+
+        int status = db.delete(BlogMaster.BlogT.TABLE_NAME,   //table name
+                selection,                         //where clause
+                selectionArgs                      //selection clause
+        );
+        return status;
+    }
+
+    public Cursor readAllBlogs() {
+        Log.d("workflow", "DB readAllBlogs method called");
+
+
+        String query = "SELECT * From "
+                + BlogMaster.BlogT.TABLE_NAME;
 
         Log.d("workflow", query);
 

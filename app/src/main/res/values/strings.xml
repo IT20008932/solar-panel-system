@@ -22,7 +22,7 @@
 
     <!-- Global Labels -->
     <string name="label_no_data">No data to show. Press + button to add a new one.</string>
-	
+
     <!-- END Global Labels -->
 
     <!-- Global Messages -->
@@ -46,9 +46,9 @@
     <!-- END Bottom Menu -->
 
     <!-- END Global Actions -->
-    
 
-	<!-- Add Package -->
+
+    <!-- Add Package -->
     <string name="label_package_name">Package Name *</string>
     <string name="label_pack_desc">Package Description *</string>
     <string name="helptxt_package_name">Enter Package Name</string>
