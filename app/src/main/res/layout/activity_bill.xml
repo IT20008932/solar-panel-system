@@ -6,97 +6,105 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".bill.Bill">
+
     <TextView
         android:id="@+id/calculationPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="Calculation"
-        android:layout_marginTop="40dp"
         android:textColor="@color/pacific_blue"
-        android:textStyle="bold"
         android:textSize="45sp"
-        android:layout_centerHorizontal="true"/>
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/calculationPage"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/calc_backgroung">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Electricity Bill \nCalculator"
-            android:textSize="40sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_gravity="center"/>
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/calc_bg"/>
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="No of Days"
+            android:layout_below="@+id/calculationPage"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            app:boxStrokeColor="@color/black"
-            android:textColorHint="@color/black"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Txt1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:textSize="18sp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/black"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="No of Units"
-            android:layout_marginTop="20dp"
-            app:boxStrokeColor="@color/black"
-            android:textColorHint="@color/black"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Txt2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:textSize="18sp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/black"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginRight="30dp"
             android:layout_gravity="center"
-            android:background="@color/pacific_blue"
-            android:shadowColor="@color/beau_blue"
-            android:text="Calculate"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            android:background="@drawable/calc_backgroung"
+            android:elevation="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Electricity Bill \nCalculator"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/calc_bg" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:hint="No of Days"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/beau_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Txt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="No of Units"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/beau_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Txt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_bg_filled"
+                android:shadowColor="@color/beau_blue"
+                android:text="Calculate"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

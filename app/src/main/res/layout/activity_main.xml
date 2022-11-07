@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -21,7 +22,110 @@
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:menu="@menu/top_app_bar"
         app:navigationIcon="@drawable/ic_sps"
-        app:title="Home Page" />
+        app:title="Solar Info" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topAppBar2"
+        android:layout_above="@id/bottom_navigation"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Blogs"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/pacific_blue"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blogs"
+                    android:layout_gravity="center"
+                    android:textSize="35sp"
+                    android:textColor="@color/pacific_blue"
+                    android:textStyle="bold"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Packages"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/pacific_blue"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Packages"
+                    android:layout_gravity="center"
+                    android:textSize="35sp"
+                    android:textColor="@color/pacific_blue"
+                    android:textStyle="bold"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Task"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/Blogs"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:outlineSpotShadowColor="@color/pacific_blue"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Task"
+                    android:textColor="@color/pacific_blue"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Bill"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/Packages"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:outlineSpotShadowColor="@color/pacific_blue"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Bill"
+                    android:textColor="@color/pacific_blue"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

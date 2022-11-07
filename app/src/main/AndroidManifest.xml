@@ -49,13 +49,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".bill.Bill2"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".bill.BillSummary"
             android:exported="false">
             <meta-data

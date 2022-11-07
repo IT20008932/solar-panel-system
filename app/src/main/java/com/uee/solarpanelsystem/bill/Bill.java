@@ -78,6 +78,7 @@ public class Bill extends AppCompatActivity {
                     intent.putExtra("calculatedValue", val);
                     intent.putExtra("serviceValue", ser);
                     startActivity(intent);
+                    finish();
                 } catch (Exception e) {
                     Toast.makeText(Bill.this, "You have to enter information first", Toast.LENGTH_LONG).show();
                 }

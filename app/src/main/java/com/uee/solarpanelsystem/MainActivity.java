@@ -2,12 +2,14 @@ package com.uee.solarpanelsystem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,10 +21,11 @@ import com.uee.solarpanelsystem.inquiry.Inquiry;
 import com.uee.solarpanelsystem.packages.Packages;
 import com.uee.solarpanelsystem.tasks.Tasks;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private MaterialToolbar mainToolbar;
     private FirebaseAuth mAuth;
+    CardView Blogs, Packages, Task, Bill;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,7 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
         mainToolbar = findViewById(R.id.topAppBar2);
         setSupportActionBar(mainToolbar);
-        getSupportActionBar().setTitle("Home Page");
+        getSupportActionBar().setTitle("Solar Info");
+
+        Blogs = findViewById(R.id.Blogs);
+        Packages = findViewById(R.id.Packages);
+        Task = findViewById(R.id.Task);
+        Bill = findViewById(R.id.Bill);
+
+        Blogs.setOnClickListener(this);
+        Packages.setOnClickListener(this);
+        Task.setOnClickListener(this);
+        Bill.setOnClickListener(this);
 
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -114,5 +127,28 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()) {
+            case R.id.Blogs:
+                intent = new Intent(this,Blogs.class);
+                startActivity(intent);
+                break;
+            case R.id.Packages:
+                intent = new Intent(this,Packages.class);
+                startActivity(intent);
+                break;
+            case R.id.Task:
+                intent = new Intent(this,Tasks.class);
+                startActivity(intent);
+                break;
+            case R.id.Bill:
+                intent = new Intent(this,Bill.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

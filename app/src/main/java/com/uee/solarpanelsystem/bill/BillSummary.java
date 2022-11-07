@@ -47,6 +47,7 @@ public class BillSummary extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BillSummary.this,Bill.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
