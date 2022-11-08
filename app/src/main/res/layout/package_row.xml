@@ -107,6 +107,125 @@
                 app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
 
             <TextView
+                android:id="@+id/sp_qty_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
+                android:id="@+id/rating_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
+                android:id="@+id/batteries_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
+                android:id="@+id/backup_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
+                android:id="@+id/connection_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
+                android:id="@+id/ch_current_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
+                android:id="@+id/ch_time_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <TextView
                 android:id="@+id/rs_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
@@ -135,7 +254,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/description_txt" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/btnView"
                 style="@android:style/Widget.DeviceDefault.Light.ImageButton"
                 android:layout_width="63dp"
                 android:layout_height="81dp"
@@ -147,7 +266,25 @@
                 app:layout_constraintHorizontal_bias="0.951"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.222"
                 app:srcCompat="@drawable/forward" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="46dp"
+                android:layout_height="49dp"
+                android:layout_alignParentEnd="true"
+                android:minWidth="24dp"
+                app:icon="@drawable/ic_round_edit_24"
+                app:iconTint="@color/black_60"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.918"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.912"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
