@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/celeste">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="153dp">
+
+            <ImageView
+                android:id="@+id/package_img"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/package_img" />
+
+            <TextView
+                android:id="@+id/package_name_txt"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:includeFontPadding="true"
+                android:inputType="textCapWords"
+                android:text="Title"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/description_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:inputType="textCapWords"
+                android:text="Description"
+                android:textAllCaps="false"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/package_img"
+                app:layout_constraintTop_toBottomOf="@+id/package_name_txt" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+                android:layout_width="63dp"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/celeste"
+                android:rotation="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/forward" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

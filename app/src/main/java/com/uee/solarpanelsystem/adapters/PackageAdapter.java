@@ -148,7 +148,7 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHo
     public int getItemCount() {
         return package_id.size();      }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView pid_txt,package_name_txt,description_txt, price_txt, sp_qty_txt, rating_txt, batteries_txt, backup_txt, connection_txt, ch_current_txt, ch_time_txt;
         LinearLayout mainLayout;
