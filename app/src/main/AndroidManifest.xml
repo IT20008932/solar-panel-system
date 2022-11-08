@@ -13,6 +13,13 @@
         android:theme="@style/Theme.SolarPanelSystem"
         tools:targetApi="31">
         <activity
+            android:name=".packages.AddContactDetails"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".tasks.Tasks"
             android:exported="false">
             <meta-data
@@ -55,7 +62,7 @@
         </activity>
         <activity
             android:name=".packages.Packages"
-            android:exported="false"
+            android:exported="true"
             android:label="PACKAGES">
             <meta-data
                 android:name="android.app.lib_name"
@@ -63,6 +70,9 @@
         </activity>
         <activity
             android:name=".packages.AddPackage"
+            android:exported="true" />
+        <activity
+            android:name=".packages.ViewPackage"
             android:exported="true" />
         <activity
             android:name=".packages.ModifyPackage"

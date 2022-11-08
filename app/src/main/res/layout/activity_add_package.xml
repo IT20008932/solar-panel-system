@@ -104,8 +104,240 @@
                 android:layout_height="22dp"
                 android:layout_weight="1" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_price_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_price"
+                app:helperText="@string/helptxt_pack_price">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_sp_qty_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_sp_qty"
+                app:helperText="@string/helptxt_add_sp_qty">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_sp_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_rating_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_rating"
+                app:helperText="@string/helptxt_add_rating">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_batteries_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_batteries"
+                app:helperText="@string/helptxt_add_batteries">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_batteries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_backup_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_backup"
+                app:helperText="@string/helptxt_add_backup">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_bacup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_connection_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_connection"
+                app:helperText="@string/helptxt_add_connection">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_connection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_ch_current_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_ch_current"
+                app:helperText="@string/helptxt_add_ch_current">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_ch_current"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_ch_time_add_package"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                android:hint="@string/label_pack_ch_time"
+                app:helperText="@string/helptxt_add_ch_time">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_ch_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
             <Button
-                android:id="@+id/buttonAddItem"
+                android:id="@+id/btn_add_package"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

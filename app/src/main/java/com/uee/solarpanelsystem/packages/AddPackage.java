@@ -22,7 +22,7 @@ import com.uee.solarpanelsystem.tasks.Tasks;
 
 
 public class AddPackage extends AppCompatActivity {
-    EditText package_name, description;
+    EditText package_name, description, price, sp_qty, rating, batteries, backup, connection, ch_current, ch_time;
     boolean isfieldsvalidated=false;  //check all field validations
     String setStatusMsg;
 
@@ -34,6 +34,14 @@ public class AddPackage extends AppCompatActivity {
         Log.d("workflow","AddPackage onCreate method called");
         package_name=findViewById(R.id.inp_package_name);
         description=findViewById(R.id.inp_description);
+        price=findViewById(R.id.inp_price);
+        sp_qty=findViewById(R.id.inp_sp_qty);
+        rating=findViewById(R.id.inp_rating);
+        batteries=findViewById(R.id.inp_batteries);
+        backup=findViewById(R.id.inp_bacup);
+        connection=findViewById(R.id.inp_connection);
+        ch_current=findViewById(R.id.inp_ch_current);
+        ch_time=findViewById(R.id.inp_ch_time);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.pack);
@@ -86,7 +94,15 @@ public class AddPackage extends AppCompatActivity {
             DBHelper dbHelper = new DBHelper(this);
 
             long val = dbHelper.addPackage(package_name.getText().toString(),
-                    description.getText().toString());
+                    description.getText().toString(),
+                    price.getText().toString(),
+                    sp_qty.getText().toString(),
+                    rating.getText().toString(),
+                    batteries.getText().toString(),
+                    backup.getText().toString(),
+                    connection.getText().toString(),
+                    ch_current.getText().toString(),
+                    ch_time.getText().toString());
 
             if (val == -1) {
                 setStatusMsg = getString(R.string.msg_package_add_unsuccesfull);
@@ -104,9 +120,10 @@ public class AddPackage extends AppCompatActivity {
     // Checks whether the inputs meet the min and max length
     public boolean CheckAllFields() {
 
-        int maxchar=100;
+        int maxchar=50;
 
         Log.d("workflow","AddPackage CheckAllFields method called");
+
         if (package_name.length() == 0) {
             package_name.setError(getString(R.string.error_msg_mandatory));
             return false;
@@ -116,13 +133,39 @@ public class AddPackage extends AppCompatActivity {
             description.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
-        if (package_name.length() > maxchar) {
-            package_name.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+
+        if (sp_qty.length() == 0) {
+            sp_qty.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
 
-        if (description.length() > maxchar) {
-            description.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+        if (rating.length() == 0) {
+            rating.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (batteries.length() == 0) {
+            batteries.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (backup.length() == 0) {
+            backup.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (connection.length() == 0) {
+            connection.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (ch_current.length() > maxchar) {
+            ch_current.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (ch_time.length() > maxchar) {
+            ch_time.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
         }
 

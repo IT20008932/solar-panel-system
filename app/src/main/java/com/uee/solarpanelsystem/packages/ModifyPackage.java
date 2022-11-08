@@ -7,14 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.uee.solarpanelsystem.R;
@@ -27,9 +24,9 @@ import com.uee.solarpanelsystem.inquiry.Inquiry;
 import com.uee.solarpanelsystem.tasks.Tasks;
 
 public class ModifyPackage extends AppCompatActivity {
-    TextInputEditText txt_package_id, txt_package_name, txt_description;
+    TextInputEditText txt_package_id, txt_package_name, txt_description, txt_price, txt_sp_qty, txt_rating, txt_batteries, txt_backup, txt_connection, txt_ch_current, txt_ch_time;
 
-    String pid, package_name, description;
+    String pid, package_name, description, price, sp_qty, rating, batteries, backup, connection, ch_current, ch_time;
     String setStatusMsg;
 
     boolean isfieldsvalidated=false;
@@ -42,6 +39,14 @@ public class ModifyPackage extends AppCompatActivity {
         txt_package_id=findViewById(R.id.inp_pid);
         txt_package_name=findViewById(R.id.inp_pack_name);
         txt_description=findViewById(R.id.inp_pack_desc);
+        txt_price=findViewById(R.id.inp_pack_price);
+        txt_sp_qty=findViewById(R.id.inp_sp_qty);
+        txt_rating=findViewById(R.id.inp_rating);
+        txt_batteries=findViewById(R.id.inp_batteries);
+        txt_backup=findViewById(R.id.inp_bacup);
+        txt_connection=findViewById(R.id.inp_connection);
+        txt_ch_current=findViewById(R.id.inp_ch_current);
+        txt_ch_time=findViewById(R.id.inp_ch_time);
 
         getAndSetIntentData();
 
@@ -97,18 +102,42 @@ public class ModifyPackage extends AppCompatActivity {
 
         if(getIntent().hasExtra("pid") &&
                 getIntent().hasExtra("package_name") &&
-                getIntent().hasExtra("description"))
+                getIntent().hasExtra("description") &&
+                getIntent().hasExtra("price") &&
+                getIntent().hasExtra("sp_qty") &&
+                getIntent().hasExtra("rating") &&
+                getIntent().hasExtra("batteries") &&
+                getIntent().hasExtra("backup") &&
+                getIntent().hasExtra("connection") &&
+                getIntent().hasExtra("ch_current") &&
+                getIntent().hasExtra("ch_time"))
         {
 
 
             pid = getIntent().getStringExtra("pid");
             package_name = getIntent().getStringExtra("package_name");
             description = getIntent().getStringExtra("description");
+            price = getIntent().getStringExtra("price");
+            sp_qty = getIntent().getStringExtra("sp_qty");
+            rating = getIntent().getStringExtra("rating");
+            batteries = getIntent().getStringExtra("batteries");
+            backup = getIntent().getStringExtra("backup");
+            connection = getIntent().getStringExtra("connection");
+            ch_current = getIntent().getStringExtra("ch_current");
+            ch_time = getIntent().getStringExtra("ch_time");
 
             //  Log.d("mvalies",rid);
             txt_package_id.setText(pid);
             txt_package_name.setText(package_name);
             txt_description.setText(description);
+            txt_price.setText(price);
+            txt_sp_qty.setText(sp_qty);
+            txt_rating.setText(rating);
+            txt_batteries.setText(batteries);
+            txt_backup.setText(backup);
+            txt_connection.setText(connection);
+            txt_ch_current.setText(ch_current);
+            txt_ch_time.setText(ch_time);
         }
         else{
             Toast.makeText(this, "No data Available", Toast.LENGTH_SHORT).show();
@@ -127,7 +156,15 @@ public class ModifyPackage extends AppCompatActivity {
 
             int val = dbHelper.updatePackage(txt_package_id.getText().toString(),
                     txt_package_name.getText().toString(),
-                    txt_description.getText().toString());
+                    txt_description.getText().toString(),
+                    txt_price.getText().toString(),
+                    txt_sp_qty.getText().toString(),
+                    txt_rating.getText().toString(),
+                    txt_batteries.getText().toString(),
+                    txt_backup.getText().toString(),
+                    txt_connection.getText().toString(),
+                    txt_ch_current.getText().toString(),
+                    txt_ch_time.getText().toString());
 
 
 
@@ -151,15 +188,56 @@ public class ModifyPackage extends AppCompatActivity {
         int maxchar=100;
 
         Log.d("workflow","AddPackage CheckAllFields method called");
-        if (package_name.length() == 0) {
+        if (txt_package_name.length() == 0) {
             txt_package_name.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
 
-        if (description.length() == 0) {
+        if (txt_description.length() == 0) {
             txt_description.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
+
+        if (txt_price.length() == 0) {
+            txt_price.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_sp_qty.length() == 0) {
+            txt_sp_qty.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_rating.length() == 0) {
+            txt_rating.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_batteries.length() == 0) {
+            txt_batteries.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_backup.length() == 0) {
+            txt_backup.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_connection.length() == 0) {
+            txt_connection.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_ch_current.length() == 0) {
+            txt_ch_current.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (txt_ch_time.length() == 0) {
+            txt_ch_time.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
         if (txt_package_name.length() > maxchar) {
             txt_package_name.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
@@ -167,6 +245,46 @@ public class ModifyPackage extends AppCompatActivity {
 
         if (txt_description.length() > maxchar) {
             txt_description.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_price.length() > maxchar) {
+            txt_price.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_sp_qty.length() > maxchar) {
+            txt_sp_qty.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_rating.length() > maxchar) {
+            txt_rating.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_batteries.length() > maxchar) {
+            txt_batteries.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_backup.length() > maxchar) {
+            txt_backup.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_connection.length() > maxchar) {
+            txt_connection.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_ch_current.length() > maxchar) {
+            txt_ch_current.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+            return false;
+        }
+
+        if (txt_ch_time.length() > maxchar) {
+            txt_ch_time.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
         }
 

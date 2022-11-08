@@ -41,7 +41,7 @@ public class Packages extends AppCompatActivity {
     Bundle bundle;
 
     DBHelper db;
-    ArrayList<String> package_id,package_name, description;
+    ArrayList<String> package_id,package_name, description, price, sp_qty, rating, batteries, backup, connection, ch_current, ch_time;
     PackageAdapter packageAdapter;
     MaterialToolbar materialToolbar;
 
@@ -71,13 +71,20 @@ public class Packages extends AppCompatActivity {
         package_id = new ArrayList<>();
         package_name = new ArrayList<>();
         description=new ArrayList<>();
+        price=new ArrayList<>();
+        sp_qty=new ArrayList<>();
+        rating=new ArrayList<>();
+        batteries=new ArrayList<>();
+        backup=new ArrayList<>();
+        connection=new ArrayList<>();
+        ch_current=new ArrayList<>();
+        ch_time=new ArrayList<>();
 
         storeDataInArrays();
         Log.d("workflow","Packages storeDataInArrays method called");
 
-        packageAdapter = new PackageAdapter(this,this,package_id,
-                package_name,
-                description);
+        packageAdapter = new PackageAdapter(this,this, package_id,
+                package_name, description, price, sp_qty, rating, batteries, backup, connection, ch_current, ch_time);
 
         recyclerView.setAdapter(packageAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -172,7 +179,15 @@ public class Packages extends AppCompatActivity {
                 package_id.add(cursor.getString(0));
                 package_name.add(cursor.getString(1).substring(0, 1).toUpperCase() + cursor.getString(1).substring(1));
                 description.add(cursor.getString(2).substring(0, 1).toUpperCase() + cursor.getString(2).substring(1));
-                Log.d("workflow",cursor.getString(2));
+                price.add(cursor.getString(3));
+                sp_qty.add(cursor.getString(4));
+                rating.add(cursor.getString(5));
+                batteries.add(cursor.getString(6));
+                backup.add(cursor.getString(7));
+                connection.add(cursor.getString(8));
+                ch_current.add(cursor.getString(9));
+                ch_time.add(cursor.getString(10));
+                Log.d("workflow",cursor.getString(10));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);

@@ -22,7 +22,7 @@
 
     <!-- Global Labels -->
     <string name="label_no_data">No data to show. Press + button to add a new one.</string>
-	
+
     <!-- END Global Labels -->
 
     <!-- Global Messages -->
@@ -46,18 +46,44 @@
     <!-- END Bottom Menu -->
 
     <!-- END Global Actions -->
-    
 
-	<!-- Add Package -->
+
+    <!-- Add Package -->
     <string name="label_package_name">Package Name *</string>
     <string name="label_pack_desc">Package Description *</string>
+    <string name="label_pack_price">Package Price *</string>
+    <string name="label_pack_sp_qty">Required Number of Solar Panels</string>
+    <string name="label_pack_rating">Inverter / UPS Rating</string>
+    <string name="label_pack_batteries">Required Number of Batteries</string>
+    <string name="label_pack_backup">Backup Hours of Batteries</string>
+    <string name="label_pack_connection">Serial / Parrallel Connection *</string>
+    <string name="label_pack_ch_current">Charging Current for Batteries</string>
+    <string name="label_pack_ch_time">Charging Time for Batteries</string>
     <string name="helptxt_package_name">Enter Package Name</string>
     <string name="helptxt_pack_desc">Enter Package Description</string>
+	<string name="helptxt_pack_price">Enter Package Price</string>
+    <string name="helptxt_add_sp_qty">Enter Required Number of Solar Panels</string>
+    <string name="helptxt_add_rating">Enter Inverter / UPS Rating</string>
+    <string name="helptxt_add_batteries">Enter Required Number of Batteries</string>
+    <string name="helptxt_add_backup">Enter Backup Hours of Batteries</string>
+    <string name="helptxt_add_connection">Enter Connection Type</string>
+    <string name="helptxt_add_ch_current">Enter Charging Current for Batteries</string>
+    <string name="helptxt_add_ch_time">Enter Charging Time for Batteries</string>
     <string name="msg_package_add_succesfull">Package added successfully.</string>
     <string name="msg_package_add_unsuccesfull">Package addition unsuccessful.</string>
     <string name="error_msg_max_characters">Maximum characters allowed to be entered is</string>
 
-    <!-- Manage Package -->
+    <!-- View Package -->
+    <string name="label_sp_qty">No. of Solar Panels</string>
+    <string name="label_rating">Inverter / UPS Rating</string>
+    <string name="label_batteries">No. of Batteris</string>
+    <string name="label_backup">Backup Hours of Batteries</string>
+    <string name="label_serial_parallel">Serial / Parallel Connection</string>
+    <string name="label_ch_current">Charging Current for Batteries</string>
+    <string name="label_ch_time">Charging Time for Batteries</string>
+    <string name="btn_get_package">GET PACKAGE</string>
+
+    <!-- Modify Package -->
     <string name="label_package_id">PACKAGE ID</string>
     <string name="msg_package_update_succesfull">Package update successfully.</string>
     <string name="msg_package_update_unsuccesfull">Package update unsuccessful.</string>
@@ -68,6 +94,19 @@
     <!--Delete Package -->
     <string name="msg_package_delete_succesfull">Package delete successfully.</string>
     <string name="msg_package_delete_unsuccesfull">Package deletion unsuccessful.</string>
+	
+	<!-- Add Contact Details -->
+    <string name="label_full_name">Full Name *</string>
+    <string name="label_address">Address *</string>
+    <string name="label_contact_no">Contact Number *</string>
+    <string name="label_email">Email (Optional)</string>
+	<string name="helptxt_full_name">Enter Full Name</string>
+    <string name="helptxt_address">Enter Address</string>
+    <string name="helptxt_contact_no">Enter Contact Number</string>
+    <string name="helptxt_email">Enter Email Address</string>
+	<string name="btn_payment">PROCEED TO PAYMENT</string>
+	<string name="msg_contact_details_succesfull">Contact details added successfully.</string>
+    <string name="msg_contact_details_unsuccesfull">Contact details addition unsuccessful.</string>
 
     <!-- Title Bar-->
     <string name="notification_title">Notification</string>
