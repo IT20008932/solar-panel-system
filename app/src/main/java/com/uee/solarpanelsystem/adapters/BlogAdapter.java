@@ -1,77 +1,95 @@
-package com.uee.solarpanelsystem.adapters;
+package com.uee.solarpanelsystem;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.uee.solarpanelsystem.R;
-import com.uee.solarpanelsystem.packages.ModifyPackage;
+import com.uee.solarpanelsystem.blogs.Blog;
+import com.uee.solarpanelsystem.database.DBHandler;
 
 import java.util.ArrayList;
 
-public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder> {
+public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.myviewholder> {
 
+    private ArrayList<Blog> blog;
     private Context context;
-    private Activity activity;
-    private ArrayList blog_id,
-            blog_name,
-            description;
+    private DBHandler dbHandler;
 
-    public BlogAdapter(Activity activity,
-                          Context context,
-                          ArrayList blog_id,
-                          ArrayList blog_name,
-                          ArrayList description)
-    {
-        Log.d("workflow","BlogAdapter constructor called");
-        this.activity = activity;
-        this.context = context;
-        this.blog_id = blog_id;
-        this.blog_name = blog_name;
-        this.description = description;
+    public BlogAdapter(ArrayList<Blog> blog){
+        this.blog = blog;
     }
 
     @NonNull
     @Override
-    public BlogAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater =LayoutInflater.from(context);
-        View view=inflater.inflate(R.layout.blog_row,parent,false);
+    public BlogAdapter.myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerow,parent,false);
 
-        return new BlogAdapter.MyViewHolder(view);
+        return new myviewholder(view);
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull BlogAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Log.d("workflow","BlogAdapter onBindViewHolder method called");
+    public void onBindViewHolder(@NonNull BlogAdapter.myviewholder holder, int position) {
 
-        holder.pid_txt.setText(String.valueOf(blog_id.get(position)));
-        holder.package_name_txt.setText(String.valueOf(blog_name.get(position)));
-        holder.description_txt.setText(String.valueOf(description.get(position)));
-        holder.packageImg.setVisibility(View.VISIBLE);
+        holder.title.setText(blog.get(position).getTitle());
 
-        holder.imgbtn.setOnClickListener(new View.OnClickListener() {
+        int id =position;
+
+        dbHandler = new DBHandler(context);
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(context, ModifyPackage.class);
-                intent.putExtra("pid",String.valueOf(blog_id.get(position)));
-                intent.putExtra("package_name",String.valueOf(blog_name.get(position)));
-                intent.putExtra("description",String.valueOf(description.get(position)));
-                activity.startActivityForResult(intent,1);
+                Intent i = new Intent(view.getContext(), editBlog.class);
+                i.putExtra("blog", blog.get(id).getBlog());
+                i.putExtra("title", blog.get(id).getTitle());
+                i.putExtra("id", Integer.toString(blog.get(id).getId()));
+                view.getContext().startActivity(i);
+            }
+        });
 
-                Log.d("values",String.valueOf(blog_id.get(position)));
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                builder.setTitle("Delete Blog");
+                builder.setMessage("Delete...?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        boolean res = dbHandler.deleteBlog(blog.get(id).getId());
+                        if (res){
+                            blog.remove(id);
+                            notifyItemRemoved(id);
+                            notifyDataSetChanged();
+                            Toast.makeText(context,"Successful",Toast.LENGTH_LONG).show();
+                        }else {
+                            Toast.makeText(context,"Unsuccessful",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
             }
         });
 
@@ -79,25 +97,20 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return blog_id.size();
+        return this.blog.size();
     }
 
-    static class MyViewHolder extends RecyclerView.ViewHolder{
-
-        TextView pid_txt,package_name_txt,description_txt;
-        LinearLayout mainLayout;
-        ImageButton imgbtn;
-        ImageView packageImg;
-
-        MyViewHolder(@NonNull View itemView) {
+    class myviewholder extends RecyclerView.ViewHolder
+    {
+        ImageView edit,delete;
+        TextView title;
+        public myviewholder(View itemView)
+        {
             super(itemView);
-            pid_txt=itemView.findViewById(R.id.pid_txt);
-            package_name_txt=itemView.findViewById(R.id.package_name_txt);
-            description_txt=itemView.findViewById(R.id.description_txt);
-            packageImg=itemView.findViewById(R.id.package_img);
-            mainLayout = itemView.findViewById(R.id.mainLayout);
+            title=(TextView)itemView.findViewById(R.id.titletext);
 
-            imgbtn=itemView.findViewById(R.id.imageButton);
+            edit=(ImageView)itemView.findViewById(R.id.editicon);
+            delete=(ImageView)itemView.findViewById(R.id.deleteicon);
         }
     }
 }
