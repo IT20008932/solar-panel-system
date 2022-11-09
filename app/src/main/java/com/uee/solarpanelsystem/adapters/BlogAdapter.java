@@ -1,4 +1,4 @@
-package com.sliit.blog;
+package com.uee.solarpanelsystem;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,8 +15,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sliit.blog.Classes.Blog;
-import com.sliit.blog.DB.DBHandler;
+
+
+
+import com.uee.solarpanelsystem.blogs.Blog;
+import com.uee.solarpanelsystem.database.DBHandler;
 
 import java.util.ArrayList;
 

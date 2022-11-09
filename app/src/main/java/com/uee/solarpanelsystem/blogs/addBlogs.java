@@ -1,4 +1,4 @@
-package com.sliit.blog;
+package com.uee.solarpanelsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sliit.blog.Classes.Blog;
-import com.sliit.blog.DB.DBHandler;
+
+import com.uee.solarpanelsystem.blogs.Blog;
+import com.uee.solarpanelsystem.database.DBHandler;
 
 public class addBlogs extends AppCompatActivity {
 

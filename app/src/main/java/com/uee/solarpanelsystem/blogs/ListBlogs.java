@@ -1,4 +1,4 @@
-package com.sliit.blog;
+package com.uee.solarpanelsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.sliit.blog.Classes.Blog;
-import com.sliit.blog.DB.DBHandler;
+import com.uee.solarpanelsystem.blogs.Blog;
+import com.uee.solarpanelsystem.database.DBHandler;
 
 import java.util.ArrayList;
 

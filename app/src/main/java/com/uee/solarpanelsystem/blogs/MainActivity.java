@@ -1,4 +1,4 @@
-package com.sliit.blog;
+package com.uee.solarpanelsystem;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
